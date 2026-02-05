@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>lovemo · 正在下载</title>
+  <meta name="robots" content="index,follow">
+    <script defer data-domain="lovemo.app" src="https://plausible.midway.run/js/script.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF97LX7BYP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QF97LX7BYP');
+  </script>
+  <style>
+    :root{
+      --bg1:#fff0f5;
+      --bg2:#fce7f3;
+      --bg3:#e0f2fe;
+      --stroke:#ffffffaa;
+      --text:#3a2a3f;
+      --btn:#ff9ecf;
+      --btn-hover:#ff7ab8;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 1200px at 10% -10%, var(--bg2), transparent 60%),
+                  radial-gradient(900px 900px at 110% 20%, var(--bg3), transparent 55%),
+                  radial-gradient(1000px 1000px at 50% 120%, var(--bg1), transparent 60%),
+                  linear-gradient(180deg, #fff, #fff7fb 60%);
+      overflow-x:hidden;
+    }
+
+    .wrap{min-height:100svh; display:grid; place-items:center; padding:24px;}
+    .card{position:relative; width:min(600px, 92vw); padding:48px 28px; border-radius:28px; border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.35));
+      backdrop-filter: blur(12px) saturate(120%);
+      box-shadow: 0 20px 60px rgba(200,150,200,.25);
+      text-align:center;
+    }
+    .title{font-size: clamp(24px, 6vw, 40px); font-weight:900; margin:0 0 14px;
+      background: linear-gradient(90deg, #ffadd6, #ffc5e6 40%, #93c5fd 85%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .subtitle{font-size: clamp(14px, 2.6vw, 18px); opacity:.85; margin:0 0 20px}
+    .cta{display:inline-block; margin-top:20px; padding:16px 28px; border-radius:999px; font-size:16px; font-weight:700;
+      text-decoration:none; color:#fff;
+      background: linear-gradient(180deg, var(--btn), var(--btn-hover));
+      box-shadow: 0 12px 28px rgba(255,122,184,.35);
+    }
+    .tip{margin-top:16px; font-size:13px; opacity:.7}
+  </style>
+</head>
+<body>
+
+  <main class="wrap">
+    <section class="card">
+      <h1 class="title">正在准备下载…</h1>
+      <p class="subtitle">请稍候，下载将自动开始</p>
+      <a id="manual" class="cta" href="#">点此重新触发</a>
+      <p id="msg" class="tip"></p>
+    </section>
+  </main>
+
+  <script>
+  (function(){
+
+    var apk = 'https://other-qiniu.jellow.site/lrGnRPNeBjJ_soe5MeLFV8UBu-vs.apk';
+
+    var ua = (navigator.userAgent||'').toLowerCase();
+    var isAndroid = /android/.test(ua);
+
+    var msg = document.getElementById('msg');
+    var manual = document.getElementById('manual');
+
+    manual.addEventListener('click', function(e){ e.preventDefault(); location.href = apk; });
+
+    if(isAndroid){
+      setTimeout(function(){ location.href = apk; }, 200);
+      msg.textContent = '正在尝试APK下载…';
+    } else {
+      msg.textContent = '请使用安卓手机打开本页。';
+    }
+  })();
+  </script>
+</body>
+</html>

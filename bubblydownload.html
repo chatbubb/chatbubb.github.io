@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+
+  <!-- 兜底：极端情况下 JS 失效时仍可跳转 -->
+  <meta http-equiv="refresh" content="0;url=https://www.bubbly.love/?utm_source=web&utm_campaign=lovemowebofficial">
+
+  <!-- 核心：无感立即跳转，不留下历史记录 -->
+  <script>
+    (function () {
+      var target = "https://www.bubbly.love/?utm_source=web&utm_campaign=lovemowebofficial";
+      window.location.replace(target);
+    })();
+  </script>
+
+  <!-- 防止搜索引擎收录当前页 -->
+  <meta name="robots" content="noindex,nofollow">
+</head>
+
+<body>
+  <!-- 用户极端情况下看到的内容（基本不会显示） -->
+  <noscript>
+    <a href="https://www.bubbly.love/?utm_source=web&utm_campaign=lovemowebofficial">
+      点击继续
+    </a>
+  </noscript>
+</body>
+</html>
