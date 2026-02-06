@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>lovemo — 免费的 AI 聊天伴侣，情绪陪伴与个性化互动</title>
-  <meta name="description" content="lovemo 是一个免费的 AI 聊天应用，类似bimobimo、Character.AI 代替, Talkie 代替, AI陪伴, 虛擬戀人, AI男友, AI女友, 角色扮演, 對話型AI">
-  <meta property="og:title" content="lovemo — 免费的 AI 聊天伴侣，情绪陪伴与个性化互动">
-  <meta property="og:description" content="lovemo 是一个免费的 AI 聊天应用，提供情绪陪伴与个性化对话，随时理解并陪伴你。">
-  <meta property="og:type" content="website">
-  <meta name="theme-color" content="#fce7f3">
+  <meta name="description" content="lovemo 是一个免费的 AI 聊天应用，类似bimobimo、Character.AI 代替, Talkie 代替, AI陪伴, 虛擬戀人, AI男友, AI女友, 角色扮演, 對話型AI" />
+  <meta property="og:title" content="lovemo — 免费的 AI 聊天伴侣，情绪陪伴与个性化互动" />
+  <meta property="og:description" content="lovemo 是一个免费的 AI 聊天应用，提供情绪陪伴与个性化对话，随时理解并陪伴你。" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#fce7f3" />
 
   <script defer data-domain="lovemo.app" src="https://plausible.midway.run/js/script.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF97LX7BYP"></script>
@@ -54,10 +54,6 @@
     .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 0 0 26px; }
     .badge { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.8); border: 1px solid #ffffffb3; }
 
-    .download-buttons { display: grid; grid-template-columns: 1fr; gap: 14px; max-width: 600px; margin: 24px auto 0; }
-    .download-buttons.grid-2 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .download-buttons.grid-2 .btn { padding: 14px 12px; font-size: 13px; }
-    .download-buttons.grid-2 .btn .icon { font-size: 16px; }
     .btn {
       display: flex; align-items: center; justify-content: center; gap: 10px;
       padding: 18px 24px; border-radius: 18px; font-weight: 600; font-size: 15px;
@@ -71,9 +67,6 @@
     .btn.primary { background: linear-gradient(135deg, #ff9ecf, #ff7ab8); color: #fff; box-shadow: 0 12px 32px rgba(255,122,184,.35); }
     .btn.primary:hover { box-shadow: 0 16px 40px rgba(255,122,184,.45); }
     .btn .icon { font-size: 20px; }
-
-    .other-links { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.3); }
-    .other-links-title { font-size: 14px; opacity: .7; margin-bottom: 12px; }
 
     .tip { margin-top: 16px; font-size: 13px; opacity: .7; }
     footer { margin-top: 40px; font-size: 14px; }
@@ -106,7 +99,7 @@
 
     @media (prefers-reduced-motion: reduce) { .heart, .sparkle { animation: none; } }
 
-    /* ===== 顶部公告（新增，复用按钮样式） ===== */
+    /* ===== 顶部公告（保留） ===== */
     .notice {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -145,11 +138,33 @@
     @media (max-width: 640px) {
       body.has-notice .wrap { padding-top: 200px; }
     }
+
+    /* ===== 新增：Bubbly 主按钮更大、更居中 ===== */
+    .btn-bubbly{
+      padding: 22px 26px;
+      font-size: 18px;
+      border-radius: 22px;
+      width: min(560px, 92vw);
+      margin: 18px auto 0;
+    }
+
+    /* ===== 新增：lovemo 弱化成粉色文字 ===== */
+    .lovemo-weak{
+      margin-top: 14px;
+    }
+    .text-link{
+      color: #ff7ab8;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .text-link:hover{
+      text-decoration: underline;
+    }
   </style>
 </head>
 
 <body>
-  <!-- 顶部公告（非微信显示，手动跳转） -->
+  <!-- 顶部公告：这是核心，始终展示 -->
   <div id="topNotice" class="notice" style="display:none">
     <div class="notice-inner">
       <div class="notice-title">快速迁移lovemo角色、资产到Bubbly!</div>
@@ -164,7 +179,7 @@ Bubbly除夕会给每个用户发666moly，保证春节期间有足够moly！
 </div>
       <div class="notice-actions">
         <a class="btn primary" href="https://www.bubbly.love/?utm_source=web&utm_campaign=lovemolanding" target="_blank" rel="noopener noreferrer">
-          下载Bubbly继续聊天
+          打开 Bubbly 迁移页
         </a>
       </div>
     </div>
@@ -195,14 +210,22 @@ Bubbly除夕会给每个用户发666moly，保证春节期间有足够moly！
         <span class="badge">情绪共鸣</span>
       </div>
 
-      <!-- 微信内 -->
-      <div id="wechatTip" style="display:none">
-        <a class="btn primary" href="#" onclick="showMask();return false"><span class="icon">📱</span> 立即下载</a>
-        <p class="tip">你在微信内，请"在浏览器中打开"后再下载</p>
-      </div>
+      <!-- 核心 CTA：Bubbly（中间更大） + lovemo 弱化粉色文字 -->
+      <div id="ctaArea">
+        <a id="bubblyBtn" class="btn primary btn-bubbly" href="#" target="_blank" rel="noopener noreferrer">
+          下载 Bubbly 继续聊天
+        </a>
 
-      <!-- 外部浏览器 -->
-      <div id="mainDownload"></div>
+        <div class="lovemo-weak">
+          <a id="lovemoLink" class="text-link" href="#" target="_blank" rel="noopener noreferrer">
+            下载 lovemo（带绑定码）
+          </a>
+        </div>
+
+        <p id="wechatHint" class="tip" style="display:none">
+          你在微信内，请点右上角「…」选择「在浏览器中打开」后再下载
+        </p>
+      </div>
 
       <footer>
         <p>官方邮箱 <a href="mailto:lovemoapp@gmail.com">lovemoapp@gmail.com</a></p>
@@ -225,34 +248,46 @@ Bubbly除夕会给每个用户发666moly，保证春节期间有足够moly！
     var isIOS = /iphone|ipad|ipod/.test(ua);
     var isAndroid = /android/.test(ua);
 
-    var IOS_URL = 'https://apps.apple.com/cn/app/lovemo/id6751569435';
-    var ANDROID_APK_URL = 'https://file.market.xiaomi.com/download/AppStore/041ef45b1c6514a3d8395b3c13541076b99d25d8e/io.iftech.lovemo_1.6.3.apk';
+    // ===== Bubbly：iOS 直达 App Store；Android/其他走你原本“按 UA 判断”的方式（这里用落地页承接） =====
+    var BUBBLY_IOS_URL = 'https://apps.apple.com/app/bubbly/id6758300285';
+    var BUBBLY_ANDROID_URL = 'https://www.bubbly.love/?utm_source=web&utm_campaign=lovemolanding';
 
-    // 非微信：显示顶部公告（不自动跳转）
-    if (!isWeChat) {
-      document.getElementById('topNotice').style.display = 'block';
-      document.body.classList.add('has-notice');
-    }
+    // ===== lovemo：弱化入口（粉色文字） =====
+    var LOVEMO_IOS_URL = 'https://apps.apple.com/cn/app/lovemo/id6751569435';
+    var LOVEMO_ANDROID_APK_URL = 'https://file.market.xiaomi.com/download/AppStore/041ef45b1c6514a3d8395b3c13541076b99d25d8e/io.iftech.lovemo_1.6.3.apk';
 
-    // 微信内：只显示提示
+    // 顶部公告始终显示
+    document.getElementById('topNotice').style.display = 'block';
+    document.body.classList.add('has-notice');
+
+    // 绑定 lovemo 弱化链接
+    var lovemoLink = document.getElementById('lovemoLink');
+    if (isIOS) lovemoLink.href = LOVEMO_IOS_URL;
+    else lovemoLink.href = LOVEMO_ANDROID_APK_URL;
+
+    // 设置 Bubbly 主按钮链接
+    var bubblyBtn = document.getElementById('bubblyBtn');
+    var bubblyUrl = isIOS ? BUBBLY_IOS_URL : BUBBLY_ANDROID_URL;
+
     if (isWeChat) {
-      document.getElementById('wechatTip').style.display = 'block';
-      return;
-    }
+      // 微信内：统一弹遮罩引导去浏览器
+      document.getElementById('wechatHint').style.display = 'block';
 
-    var html = '<div class="download-buttons">';
+      bubblyBtn.href = '#';
+      bubblyBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        showMask();
+      });
 
-    if (isIOS) {
-      html += '<a class="btn primary" href="' + IOS_URL + '"><span class="icon">🍎</span>苹果商店下载(带绑定码)</a>';
-    } else if (isAndroid) {
-      html += '<a class="btn primary" href="' + ANDROID_APK_URL + '"><span class="icon">📦</span>下载安卓版(带绑定码)</a>';
+      lovemoLink.href = '#';
+      lovemoLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        showMask();
+      });
     } else {
-      // 桌面或未知系统：给 APK 兜底
-      html += '<a class="btn primary" href="' + ANDROID_APK_URL + '"><span class="icon">📦</span>下载安卓版(带绑定码)</a>';
+      // 外部浏览器：直接跳
+      bubblyBtn.href = bubblyUrl;
     }
-
-    html += '</div>';
-    document.getElementById('mainDownload').innerHTML = html;
   })();
 
   function showMask() { document.getElementById('wxMask').classList.add('show'); }
